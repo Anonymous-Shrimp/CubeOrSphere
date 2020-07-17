@@ -39,7 +39,15 @@ public class PauseUI : MonoBehaviour
     void cursorLock(bool locke)
     {
         Cursor.visible = !locke;
-        Screen.lockCursor = locke;
+        if (locke)
+        {
+            Cursor.lockState = CursorLockMode.Locked;
+        }
+        else
+        {
+            Cursor.lockState = CursorLockMode.None;
+        }
+        
     }
     public void boolPause(bool pauser)
     {
