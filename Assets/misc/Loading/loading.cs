@@ -19,7 +19,14 @@ public class loading : MonoBehaviour
 
     IEnumerator LoadAsynchronously(int sceneIndex)
     {
-        pause.boolPause(false);
+
+        if(!(SceneManager.GetActiveScene().buildIndex == 0))
+        {
+            pause.boolPause(false);
+        }
+       
+
+
         loadingScreen.SetActive(true);
         Debug.Log("Switch scene to " + sceneIndex);
         anim.SetTrigger("FadeOut");
