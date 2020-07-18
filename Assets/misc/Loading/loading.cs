@@ -17,6 +17,7 @@ public class loading : MonoBehaviour
         StartCoroutine(LoadAsynchronously(sceneIndex));
     }
 
+
     IEnumerator LoadAsynchronously(int sceneIndex)
     {
 

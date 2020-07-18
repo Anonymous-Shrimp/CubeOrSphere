@@ -2,7 +2,8 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-using UnityStandardAssets.Cameras;
+using UnityEngine.SceneManagement;
+
 
 public class squareSwitch : MonoBehaviour
 {
@@ -18,8 +19,9 @@ public class squareSwitch : MonoBehaviour
     public Rigidbody sphereRigid;
     public CinemachineFreeLook cam;
     [Space]
-    [Space]
+    
     public Transform trail;
+    
     // Start is called before the first frame update
     void Start()
     {
@@ -77,4 +79,5 @@ public class squareSwitch : MonoBehaviour
         
         
     }
+    
 }
