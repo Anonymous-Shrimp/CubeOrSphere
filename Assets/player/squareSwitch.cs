@@ -21,6 +21,11 @@ public class squareSwitch : MonoBehaviour
     [Space]
     
     public Transform trail;
+    public Transform pickup;
+
+    [HideInInspector]
+    public bool canSwitch = true;
+
     
     // Start is called before the first frame update
     void Start()
@@ -39,7 +44,7 @@ public class squareSwitch : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if (Input.GetMouseButtonDown(1))
+        if (Input.GetMouseButtonDown(1) && canSwitch)
         {
             
             if (!issphere)

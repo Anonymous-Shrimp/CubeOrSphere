@@ -19,6 +19,11 @@ public class PlayerController : MonoBehaviour
     public float jumpSpeed = 10;
 
 
+    [HideInInspector]
+    public bool canMove = true;
+    public bool canJump = true;
+
+
     // Use this for initialization
     void Start()
     {
@@ -28,43 +33,51 @@ public class PlayerController : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        // Get Input for axis
-        float h = Input.GetAxis("Horizontal");
-        float v = Input.GetAxis("Vertical");
-
-        // Calculate the forward vector
-        Vector3 camForward_Dir = Vector3.Scale(Camera.main.transform.forward, new Vector3(1, 0, 1)).normalized;
-        Vector3 move = v * camForward_Dir + h * Camera.main.transform.right;
-
-        if (move.magnitude > 1f) move.Normalize();
-
-        
-
-        // Calculate the rotation for the player
-        move = transform.InverseTransformDirection(move);
-
-        // Get Euler angles
-        float turnAmount = Mathf.Atan2(move.x, move.z);
-
-        transform.Rotate(0, turnAmount *  RotationSpeed * Time.deltaTime, 0);
-
-        if (_characterController.isGrounded)
+        if (canMove)
         {
-            //_animator.SetBool("run", move.magnitude> 0);
 
-            _moveDir = transform.forward * move.magnitude;
+            // Get Input for axis
+            float h = Input.GetAxis("Horizontal");
+            float v = Input.GetAxis("Vertical");
 
-            _moveDir *= Speed;
-            if (Input.GetButton("Jump"))
+
+            // Calculate the forward vector
+
+            Vector3 camForward_Dir = Vector3.Scale(Camera.main.transform.forward, new Vector3(1, 0, 1)).normalized;
+            Vector3 move = v * camForward_Dir + h * Camera.main.transform.right;
+
+            if (move.magnitude > 1f) move.Normalize();
+
+
+
+            // Calculate the rotation for the player
+            move = transform.InverseTransformDirection(move);
+
+            // Get Euler angles
+            float turnAmount = Mathf.Atan2(move.x, move.z);
+
+            transform.Rotate(0, turnAmount * RotationSpeed * Time.deltaTime, 0);
+
+            if (_characterController.isGrounded)
+            {
+                //_animator.SetBool("run", move.magnitude> 0);
+
+                _moveDir = transform.forward * move.magnitude;
+
+                _moveDir *= Speed;
+                if (canJump)
                 {
-                    _moveDir.y = jumpSpeed;
+                    if (Input.GetButton("Jump"))
+                    {
+                        _moveDir.y = jumpSpeed;
+                    }
                 }
+            }
+
+            _moveDir.y -= Gravity * Time.deltaTime;
+
+            _characterController.Move(_moveDir * Time.deltaTime);
         }
-
-        _moveDir.y -= Gravity * Time.deltaTime;
-
-        _characterController.Move(_moveDir * Time.deltaTime);
-
     }
 
 }

@@ -8,6 +8,7 @@ public class PauseUI : MonoBehaviour
     public bool LockCursor = true;
     public bool isPaused = false;
     public GameObject pauseUI;
+
     // Start is called before the first frame update
     void Start()
     {

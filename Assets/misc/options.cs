@@ -76,10 +76,7 @@ public class options : MonoBehaviour
     {
         AudioMixer.SetFloat("SFXVolume", volume);
     }
-    public void SetAnnouncerVolume(float volume)
-    {
-        AudioMixer.SetFloat("announcerVolume", volume);
-    }
+    
 
 
     public void SetQuality(int qualityIndex)

@@ -12,6 +12,9 @@ namespace UnityStandardAssets.Vehicles.Ball
 
         private const float k_GroundRayLength = 1f; // The length of the ray to check if the ball is grounded.
         private Rigidbody m_Rigidbody;
+        [Space]
+        public float forceMultiplier = 100;
+        public float multiplier;
 
 
         private void Start()
@@ -24,16 +27,27 @@ namespace UnityStandardAssets.Vehicles.Ball
 
         public void Move(Vector3 moveDirection, bool jump)
         {
+            if (Input.GetKey(KeyCode.LeftShift))
+            {
+                multiplier = forceMultiplier;
+                m_Rigidbody.mass = forceMultiplier * 0.75f;
+            }
+            else
+            {
+
+                multiplier = 1;
+                m_Rigidbody.mass = 1;
+            }
             // If using torque to rotate the ball...
             if (m_UseTorque)
             {
                 // ... add torque around the axis defined by the move direction.
-                m_Rigidbody.AddTorque(new Vector3(moveDirection.z, 0, -moveDirection.x)*m_MovePower);
+                m_Rigidbody.AddTorque(new Vector3(moveDirection.z, 0, -moveDirection.x)*m_MovePower * multiplier);
             }
             else
             {
                 // Otherwise add force in the move direction.
-                m_Rigidbody.AddForce(moveDirection*m_MovePower);
+                m_Rigidbody.AddForce(moveDirection*m_MovePower * multiplier);
             }
 
             // If on the ground and jump is pressed...
@@ -42,6 +56,7 @@ namespace UnityStandardAssets.Vehicles.Ball
                 // ... add force in upwards.
                 m_Rigidbody.AddForce(Vector3.up*m_JumpPower, ForceMode.Impulse);
             }
+            
         }
     }
 }

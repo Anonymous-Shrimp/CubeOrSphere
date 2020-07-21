@@ -42,7 +42,6 @@ namespace UnityStandardAssets.Vehicles.Ball
 
             float h = CrossPlatformInputManager.GetAxis("Horizontal");
             float v = CrossPlatformInputManager.GetAxis("Vertical");
-            jump = CrossPlatformInputManager.GetButton("Jump");
 
             // calculate move direction
             if (cam != null)
@@ -63,7 +62,6 @@ namespace UnityStandardAssets.Vehicles.Ball
         {
             // Call the Move function of the ball controller
             ball.Move(move, jump);
-            jump = false;
         }
     }
 }

@@ -17,6 +17,10 @@ public class SceneManage : MonoBehaviour
     {
         
     }
+    public void goToSceneNoLoad(int scene)
+    {
+        SceneManager.LoadSceneAsync(scene);
+    }
     public void quit()
     {
         Debug.Log("Quitting...");

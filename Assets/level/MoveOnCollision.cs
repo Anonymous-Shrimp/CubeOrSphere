@@ -1,51 +1,81 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UIElements;
 
 public class MoveOnCollision : MonoBehaviour
 {
-    public Transform door;
-    public Vector3 defaultPos;
-    public Vector3 movedPos;
-    public float moveTime;
+    public Animator doorAnim;
+    public bool closed = true;
+    public bool multiplePads = false;
+    public doorManager doorManager;
+    public GameObject[] objectsOnPad;
+    public int padNo;
+    public Material padNormal;
+    public Material padActivated;
+    public Renderer objects;
+    public bool boxOn;
+    public bool playerOn;
 
-
-    private void Start()
-    {
-        while (door.position != defaultPos)
-        {
-            door.position = Vector3.MoveTowards(door.position, defaultPos, moveTime);
-        }
-    }
-    private void OnTriggerEnter(Collider collide)
-    {
-        if(collide.gameObject.CompareTag("Box") || collide.gameObject.CompareTag("Player"))
-        {
-            StartCoroutine(activateDoor(true));
-        }
-        else
-        {
-            StartCoroutine(activateDoor(false));
-        }
-    }
-
-    IEnumerator activateDoor(bool open)
-    {
-        if (open)
-        {
-            while (door.position != movedPos)
-            {
-                door.position = Vector3.MoveTowards(door.position, movedPos, moveTime * Time.deltaTime);
-            }
-        }
-        else
-        {
-            while (door.position != defaultPos)
-            {
-                door.position = Vector3.MoveTowards(door.position, defaultPos, moveTime * Time.deltaTime);
-            }
-        }
-        yield return null;
-    }
     
+    private void Update()
+    {
+        if (!multiplePads)
+        {
+            doorAnim.SetBool("Closed", closed);
+        }
+        
+    }
+    private void FixedUpdate()
+    {
+        if(boxOn || playerOn)
+        {
+            closed = false;
+        }
+        else
+        {
+            closed = true;
+        }
+        
+        if(padNo == 1)
+        {
+            doorManager.pad1 = closed;
+        }else if(padNo == 2)
+        {
+            doorManager.pad2 = closed;
+        }
+        if (closed)
+        {
+            objects.material = padNormal;
+        }
+        else
+        {
+            objects.material = padActivated;
+        }
+    }
+
+
+
+    private void OnTriggerEnter(Collider collision)
+    {
+        if (collision.gameObject.CompareTag("Box"))
+        {
+            boxOn = true;
+        }
+        if (collision.gameObject.CompareTag("Player"))
+        {
+            playerOn = true;
+        }
+    }
+    private void OnTriggerExit(Collider collision)
+    {
+        if (collision.gameObject.CompareTag("Box"))
+        {
+            boxOn = false;
+        }
+        if (collision.gameObject.CompareTag("Player"))
+        {
+            playerOn = false;
+        }
+    }
 }

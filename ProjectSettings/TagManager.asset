@@ -6,6 +6,9 @@ TagManager:
   tags:
   - Fire
   - Box
+  - pad
+  - lava
+  - tutorialTrigger
   layers:
   - Default
   - TransparentFX

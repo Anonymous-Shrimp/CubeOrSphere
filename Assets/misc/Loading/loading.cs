@@ -16,6 +16,10 @@ public class loading : MonoBehaviour
     {
         StartCoroutine(LoadAsynchronously(sceneIndex));
     }
+    public void LoadSameLevel()
+    {
+        StartCoroutine(LoadAsynchronously(SceneManager.GetActiveScene().buildIndex));
+    }
 
 
     IEnumerator LoadAsynchronously(int sceneIndex)
@@ -25,7 +29,6 @@ public class loading : MonoBehaviour
         {
             pause.boolPause(false);
         }
-       
 
 
         loadingScreen.SetActive(true);
@@ -52,7 +55,7 @@ public class loading : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        StartCoroutine(wait(1.5f));
+        StartCoroutine(wait(1));
     }
 
     // Update is called once per frame
