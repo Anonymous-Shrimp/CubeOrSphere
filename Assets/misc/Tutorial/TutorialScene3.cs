@@ -10,7 +10,6 @@ public class TutorialScene3 : MonoBehaviour
     public string[] texts;
     public Text popupText;
     int popUpIndex = 1;
-    float wait = 2;
     bool collisionTrigger = false;
     public GameObject[] collisions;
 

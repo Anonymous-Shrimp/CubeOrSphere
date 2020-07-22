@@ -10,6 +10,7 @@ public class loading : MonoBehaviour
     public GameObject loadingScreen;
     public Animator anim;
     public PauseUI pause;
+
     
 
     public void LoadLevel(int sceneIndex)
@@ -30,8 +31,12 @@ public class loading : MonoBehaviour
             pause.boolPause(false);
         }
 
-
+        
         loadingScreen.SetActive(true);
+        if (pause != null)
+        {
+            pause.canPause = false;
+        }
         Debug.Log("Switch scene to " + sceneIndex);
         anim.SetTrigger("FadeOut");
         yield return new WaitForSeconds(3);
@@ -51,6 +56,10 @@ public class loading : MonoBehaviour
     {
         yield return new WaitForSeconds(seconds);
         loadingScreen.SetActive(false);
+        if (pause != null)
+        {
+            pause.canPause = true;
+        }
     }
     // Start is called before the first frame update
     void Start()

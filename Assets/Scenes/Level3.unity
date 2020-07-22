@@ -292,6 +292,11 @@ PrefabInstance:
       propertyPath: m_Name
       value: Required GameObjects
       objectReference: {fileID: 0}
+    - target: {fileID: 611869425996456100, guid: c45d6a79fba5e004c8b66ebbb91dcbc8,
+        type: 3}
+      propertyPath: cubePickup
+      value: 
+      objectReference: {fileID: 992804845}
     - target: {fileID: 8652445064292855895, guid: c45d6a79fba5e004c8b66ebbb91dcbc8,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -382,7 +387,8 @@ PrefabInstance:
       propertyPath: m_LocalPosition.z
       value: -12.32724
       objectReference: {fileID: 0}
-    m_RemovedComponents: []
+    m_RemovedComponents:
+    - {fileID: 9012668218114714983, guid: c45d6a79fba5e004c8b66ebbb91dcbc8, type: 3}
   m_SourcePrefab: {fileID: 100100000, guid: c45d6a79fba5e004c8b66ebbb91dcbc8, type: 3}
 --- !u!1001 &340285814
 PrefabInstance:
@@ -492,6 +498,11 @@ PrefabInstance:
       propertyPath: m_Name
       value: Canvas
       objectReference: {fileID: 0}
+    - target: {fileID: 3730011319639655721, guid: ad47d7d1748b646408b79d5cd474dec6,
+        type: 3}
+      propertyPath: m_Text
+      value: Go to the yellow boxes to place on the red pads
+      objectReference: {fileID: 0}
     - target: {fileID: 3730011319703855984, guid: ad47d7d1748b646408b79d5cd474dec6,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -596,11 +607,6 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Pivot.y
       value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 3730011319639655721, guid: ad47d7d1748b646408b79d5cd474dec6,
-        type: 3}
-      propertyPath: m_Text
-      value: Go to the yellow boxes to place on the red pads
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: ad47d7d1748b646408b79d5cd474dec6, type: 3}
@@ -2390,7 +2396,7 @@ CapsuleCollider:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 843928393}
   m_Material: {fileID: 0}
-  m_IsTrigger: 0
+  m_IsTrigger: 1
   m_Enabled: 1
   m_Radius: 0.5
   m_Height: 1
@@ -2497,6 +2503,18 @@ Transform:
     type: 3}
   m_PrefabInstance: {fileID: 6610868077960847826}
   m_PrefabAsset: {fileID: 0}
+--- !u!114 &992804845 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 2345212816490877707, guid: c45d6a79fba5e004c8b66ebbb91dcbc8,
+    type: 3}
+  m_PrefabInstance: {fileID: 246333619}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 542f4c292ab10b04aa9723547c8bb614, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1001 &1533269663
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -3092,7 +3110,7 @@ CapsuleCollider:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 2002119095}
   m_Material: {fileID: 0}
-  m_IsTrigger: 0
+  m_IsTrigger: 1
   m_Enabled: 1
   m_Radius: 0.5
   m_Height: 1

@@ -14,9 +14,11 @@ public class squareSwitch : MonoBehaviour
     [Space]
     public GameObject cube;
     public CharacterController cubeRigid;
+    public pickup cubePickup;
     [Space]
     public GameObject sphere;
     public Rigidbody sphereRigid;
+    [Space]
     public CinemachineFreeLook cam;
     [Space]
     
@@ -73,6 +75,8 @@ public class squareSwitch : MonoBehaviour
             cube.SetActive(false);
             cube.transform.position = sphere.transform.position;
             trail.position = sphere.transform.position;
+            cubePickup.box = null;
+
         }
         else
         {

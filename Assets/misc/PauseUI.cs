@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class PauseUI : MonoBehaviour
 {
-
+    public bool canPause = false;
     public bool LockCursor = true;
     public bool isPaused = false;
     public GameObject pauseUI;
@@ -19,21 +19,28 @@ public class PauseUI : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if (Input.GetKeyDown(KeyCode.Escape))
+        if (canPause)
         {
-            isPaused = !isPaused;
-            if (isPaused)
+            if (Input.GetKeyDown(KeyCode.Escape))
             {
-                pauseUI.SetActive(true);
-                Time.timeScale = 0;
-                cursorLock(false);
+                isPaused = !isPaused;
+                if (isPaused)
+                {
+                    pauseUI.SetActive(true);
+                    Time.timeScale = 0;
+                    cursorLock(false);
+                }
+                else
+                {
+                    pauseUI.SetActive(false);
+                    Time.timeScale = 1;
+                    cursorLock(true);
+                }
             }
-            else
-            {
-                pauseUI.SetActive(false);
-                Time.timeScale = 1;
-                cursorLock(true);
-            }
+        }
+        else
+        {
+            isPaused = false;
         }
     }
 

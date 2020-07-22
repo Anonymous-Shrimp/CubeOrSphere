@@ -21,8 +21,8 @@ public class TutorialScene1 : MonoBehaviour
     {
         directions.SetBool("Faded", true);
         playerCube.canMove = false;
-        playerCube.canJump = false;
-        playerManager.canSwitch = false;
+        playerCube.canJump = true;
+        playerManager.canSwitch = true;
     }
 
     // Update is called once per frame

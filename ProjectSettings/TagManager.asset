@@ -9,6 +9,8 @@ TagManager:
   - pad
   - lava
   - tutorialTrigger
+  - noClip
+  - Jump Pad
   layers:
   - Default
   - TransparentFX

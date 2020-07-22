@@ -17,6 +17,7 @@ public class PlayerController : MonoBehaviour
     private Vector3 _moveDir = Vector3.zero;
 
     public float jumpSpeed = 10;
+    public float jumpPadSpeed = 30;
 
 
     [HideInInspector]

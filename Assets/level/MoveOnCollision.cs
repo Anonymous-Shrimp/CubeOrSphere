@@ -36,13 +36,17 @@ public class MoveOnCollision : MonoBehaviour
         {
             closed = true;
         }
-        
-        if(padNo == 1)
+
+        if (multiplePads)
         {
-            doorManager.pad1 = closed;
-        }else if(padNo == 2)
-        {
-            doorManager.pad2 = closed;
+            if (padNo == 1)
+            {
+                doorManager.pad1 = closed;
+            }
+            else if (padNo == 2)
+            {
+                doorManager.pad2 = closed;
+            }
         }
         if (closed)
         {

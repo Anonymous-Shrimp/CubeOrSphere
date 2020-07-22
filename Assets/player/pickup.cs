@@ -19,6 +19,7 @@ public class pickup : MonoBehaviour
             if (box != null && !pickedup)
             {
                 pickedup = true;
+                box.GetComponent<bounceWithRigid>().removeContraint();
             }
             else if (pickedup)
             {

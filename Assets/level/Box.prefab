@@ -13,6 +13,7 @@ GameObject:
   - component: {fileID: 558877468228713793}
   - component: {fileID: 558877468228713798}
   - component: {fileID: 558877468228713799}
+  - component: {fileID: 5313701111438174187}
   m_Layer: 0
   m_Name: Box
   m_TagString: Box
@@ -27,13 +28,13 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 558877468228713796}
-  m_LocalRotation: {x: 0.0061706076, y: -0.7070799, z: 0.0061706076, w: 0.7070799}
+  m_LocalRotation: {x: 0.006170608, y: -0.7070799, z: 0.006170608, w: 0.7070799}
   m_LocalPosition: {x: 59.80346, y: -59.843594, z: -93.42}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
   m_RootOrder: 0
-  m_LocalEulerAnglesHint: {x: 1, y: 0, z: 0}
+  m_LocalEulerAnglesHint: {x: 1, y: -90.00001, z: 0}
 --- !u!33 &558877468228713792
 MeshFilter:
   m_ObjectHideFlags: 0
@@ -56,7 +57,6 @@ MeshRenderer:
   m_MotionVectors: 1
   m_LightProbeUsage: 1
   m_ReflectionProbeUsage: 1
-  m_RayTracingMode: 2
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
@@ -110,3 +110,16 @@ Rigidbody:
   m_Interpolate: 0
   m_Constraints: 0
   m_CollisionDetection: 0
+--- !u!114 &5313701111438174187
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 558877468228713796}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 1e163e448b0c17b41b4ec540a3d5f696, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  jumpPadPower: 8
