@@ -603,8 +603,8 @@ MonoBehaviour:
   - 
   - Use W, A, S, and D to Move around. Use the mouse to move the camera.
   - 
-  - Press Space to jump over walls.
-  - Press Space to jump over walls.
+  - Press Space to jump over walls (Only for Cube)
+  - Press Space to jump over walls (Only for Cube).
   - Right click to switch between a cube and a sphere.
   popupText: {fileID: 291418572}
 --- !u!43 &1719369695

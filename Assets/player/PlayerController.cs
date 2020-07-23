@@ -12,9 +12,7 @@ public class PlayerController : MonoBehaviour
 
     public float RotationSpeed = 240.0f;
 
-    private float Gravity = 20.0f;
-
-    private Vector3 _moveDir = Vector3.zero;
+   
 
     public float jumpSpeed = 10;
     public float jumpPadSpeed = 30;
@@ -23,6 +21,9 @@ public class PlayerController : MonoBehaviour
     [HideInInspector]
     public bool canMove = true;
     public bool canJump = true;
+    public float Gravity = 20.0f;
+
+    public Vector3 _moveDir = Vector3.zero;
 
 
     // Use this for initialization

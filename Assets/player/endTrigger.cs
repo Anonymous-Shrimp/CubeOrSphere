@@ -1,12 +1,16 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.EventSystems;
 using UnityEngine.SceneManagement;
+using UnityStandardAssets.Vehicles.Ball;
 
 public class endTrigger : MonoBehaviour
 {
     public loading levelLoader;
     public squareSwitch player;
+    public Ball ball;
+    public PlayerController cube;
     public void triggerEnter(Collider collide)
     {
         if (collide.gameObject.CompareTag("Finish"))
@@ -17,6 +21,20 @@ public class endTrigger : MonoBehaviour
         if (collide.gameObject.CompareTag("lava"))
         {
             StartCoroutine(waitAndKill(2));
+        }
+        if (collide.gameObject.CompareTag("spikes"))
+        {
+            print("ree");
+            if (player.issphere)
+            {
+                ball.m_Rigidbody.constraints = RigidbodyConstraints.FreezePositionY | RigidbodyConstraints.FreezePositionX;
+            }
+            else
+            {
+                cube._moveDir = new Vector3(0, 0, cube._moveDir.z);
+                cube.Gravity = 0;
+            }
+            StartCoroutine(waitAndKill(1.5f));
         }
         if (collide.gameObject.CompareTag("tutorialTrigger"))
         {
@@ -29,8 +47,12 @@ public class endTrigger : MonoBehaviour
             }
             
         }
+        if (collide.gameObject.CompareTag("startSpike"))
+        {
+            collide.gameObject.GetComponent<moveOnlyOnTrigger>().moving = true;
+        }
     }
-    IEnumerator waitAndKill(int seconds)
+    IEnumerator waitAndKill(float seconds)
     {
         yield return new WaitForSeconds(seconds);
 

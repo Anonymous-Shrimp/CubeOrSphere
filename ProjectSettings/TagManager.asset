@@ -11,6 +11,8 @@ TagManager:
   - tutorialTrigger
   - noClip
   - Jump Pad
+  - startSpike
+  - spikes
   layers:
   - Default
   - TransparentFX

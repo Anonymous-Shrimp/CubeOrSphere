@@ -12,10 +12,12 @@ namespace UnityStandardAssets.Vehicles.Ball
         [SerializeField] private float jumpPadPower = 20;
 
         private const float k_GroundRayLength = 1f; // The length of the ray to check if the ball is grounded.
-        private Rigidbody m_Rigidbody;
+        
         [Space]
         public float forceMultiplier = 100;
         public float multiplier;
+        [HideInInspector]
+        public Rigidbody m_Rigidbody;
 
 
         private void Start()
