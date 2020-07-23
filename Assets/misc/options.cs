@@ -57,6 +57,7 @@ public class options : MonoBehaviour
     private void Update()
     {
         QualityDropdown.value = QualitySettings.GetQualityLevel();
+        
     }
     public void SetResolution(int ResolutionIndex)
     {

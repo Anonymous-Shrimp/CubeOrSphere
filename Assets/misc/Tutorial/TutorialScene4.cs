@@ -15,14 +15,16 @@ public class TutorialScene4 : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
+        mainCamera = Camera.main.gameObject;
         cube.canMove = false;
         cube.canJump = false;
         player.canSwitch = false;
-        mainCamera.SetActive(false) ;
+        mainCamera.SetActive(false);
 
     }
     private void Update()
     {
+        mainCamera = Camera.main.gameObject;
         cube.canMove = controllable;
         cube.canJump = controllable;
         player.canSwitch = controllable;

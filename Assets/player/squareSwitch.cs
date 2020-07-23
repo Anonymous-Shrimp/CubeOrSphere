@@ -25,6 +25,7 @@ public class squareSwitch : MonoBehaviour
     public Transform trail;
     public Transform pickup;
     public bool isGrounded = true;
+    public Animator shapeIndicator;
 
     [HideInInspector]
     public bool canSwitch = true;
@@ -39,9 +40,10 @@ public class squareSwitch : MonoBehaviour
         cam.LookAt = cube.transform;
         sphere.SetActive(false);
         issphere = false;
+        shapeIndicator.SetBool("issphere", issphere);
 
-       
-        
+
+
     }
 
     // Update is called once per frame
@@ -51,6 +53,7 @@ public class squareSwitch : MonoBehaviour
         if (Input.GetMouseButtonDown(1) && canSwitch && isGrounded)
         {
             
+
             if (!issphere)
             {
                 sphere.SetActive(true);
@@ -70,6 +73,7 @@ public class squareSwitch : MonoBehaviour
                 sphere.SetActive(false);
                 issphere = false;
             }
+            shapeIndicator.SetBool("issphere", issphere);
         }
         if (issphere)
         {
@@ -78,6 +82,8 @@ public class squareSwitch : MonoBehaviour
             cube.transform.position = sphere.transform.position;
             trail.position = sphere.transform.position;
             cubePickup.box = null;
+            cam.Follow = sphere.transform;
+            cam.LookAt = sphere.transform;
             isGrounded = sphere.GetComponent<Ball>().isGrounded;
 
         }
@@ -87,8 +93,12 @@ public class squareSwitch : MonoBehaviour
             sphere.SetActive(false);
             sphereRigid.velocity = new Vector3(cubeRigid.velocity.x, cubeRigid.velocity.y, cubeRigid.velocity.z);
             trail.position = cube.transform.position;
+            cam.Follow = cube.transform;
+            cam.LookAt = cube.transform;
             isGrounded = cubeRigid.isGrounded;
         }
+        shapeIndicator.SetBool("issphere", issphere);
+        print(issphere);
         
         
     }
