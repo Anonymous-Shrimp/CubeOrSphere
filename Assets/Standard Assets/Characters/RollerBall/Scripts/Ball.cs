@@ -18,6 +18,7 @@ namespace UnityStandardAssets.Vehicles.Ball
         public float multiplier;
         [HideInInspector]
         public Rigidbody m_Rigidbody;
+        public bool isGrounded = false;
 
 
         private void Start()
@@ -25,6 +26,10 @@ namespace UnityStandardAssets.Vehicles.Ball
             m_Rigidbody = GetComponent<Rigidbody>();
             // Set the maximum angular velocity.
             GetComponent<Rigidbody>().maxAngularVelocity = m_MaxAngularVelocity;
+        }
+        private void Update()
+        {
+            isGrounded = Physics.Raycast(transform.position, -Vector3.up, k_GroundRayLength);
         }
 
 
@@ -54,7 +59,7 @@ namespace UnityStandardAssets.Vehicles.Ball
             }
 
             // If on the ground and jump is pressed...
-            if (Physics.Raycast(transform.position, -Vector3.up, k_GroundRayLength) && jump)
+            if (isGrounded && jump)
             {
                 // ... add force in upwards.
                 m_Rigidbody.AddForce(Vector3.up*m_JumpPower, ForceMode.Impulse);

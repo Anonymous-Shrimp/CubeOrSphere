@@ -75,7 +75,7 @@ public class PlayerController : MonoBehaviour
                     }
                 }
             }
-
+            
             _moveDir.y -= Gravity * Time.deltaTime;
 
             _characterController.Move(_moveDir * Time.deltaTime);

@@ -3,7 +3,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.SceneManagement;
-
+using UnityStandardAssets.Vehicles.Ball;
 
 public class squareSwitch : MonoBehaviour
 {
@@ -24,6 +24,7 @@ public class squareSwitch : MonoBehaviour
     
     public Transform trail;
     public Transform pickup;
+    public bool isGrounded = true;
 
     [HideInInspector]
     public bool canSwitch = true;
@@ -46,7 +47,8 @@ public class squareSwitch : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if (Input.GetMouseButtonDown(1) && canSwitch)
+
+        if (Input.GetMouseButtonDown(1) && canSwitch && isGrounded)
         {
             
             if (!issphere)
@@ -76,6 +78,7 @@ public class squareSwitch : MonoBehaviour
             cube.transform.position = sphere.transform.position;
             trail.position = sphere.transform.position;
             cubePickup.box = null;
+            isGrounded = sphere.GetComponent<Ball>().isGrounded;
 
         }
         else
@@ -84,6 +87,7 @@ public class squareSwitch : MonoBehaviour
             sphere.SetActive(false);
             sphereRigid.velocity = new Vector3(cubeRigid.velocity.x, cubeRigid.velocity.y, cubeRigid.velocity.z);
             trail.position = cube.transform.position;
+            isGrounded = cubeRigid.isGrounded;
         }
         
         
