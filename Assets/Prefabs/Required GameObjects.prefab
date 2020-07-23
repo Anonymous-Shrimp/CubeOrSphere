@@ -2441,37 +2441,37 @@ PrefabInstance:
     - target: {fileID: 1073438886030051023, guid: 2d7548fae5ec87248bfdc452e9fd93c9,
         type: 3}
       propertyPath: m_LocalPosition.x
-      value: -0.21345901
+      value: 46.489998
       objectReference: {fileID: 0}
     - target: {fileID: 1073438886030051023, guid: 2d7548fae5ec87248bfdc452e9fd93c9,
         type: 3}
       propertyPath: m_LocalPosition.y
-      value: 1.613594
+      value: -84.54122
       objectReference: {fileID: 0}
     - target: {fileID: 1073438886030051023, guid: 2d7548fae5ec87248bfdc452e9fd93c9,
         type: 3}
       propertyPath: m_LocalPosition.z
-      value: -12.32724
+      value: -76.28902
       objectReference: {fileID: 0}
     - target: {fileID: 1073438886030051023, guid: 2d7548fae5ec87248bfdc452e9fd93c9,
         type: 3}
       propertyPath: m_LocalRotation.x
-      value: 0.16125627
+      value: 0.10923629
       objectReference: {fileID: 0}
     - target: {fileID: 1073438886030051023, guid: 2d7548fae5ec87248bfdc452e9fd93c9,
         type: 3}
       propertyPath: m_LocalRotation.y
-      value: 0.000000029412286
+      value: 0.000000007405996
       objectReference: {fileID: 0}
     - target: {fileID: 1073438886030051023, guid: 2d7548fae5ec87248bfdc452e9fd93c9,
         type: 3}
       propertyPath: m_LocalRotation.z
-      value: -0.0000000048058113
+      value: -8.138739e-10
       objectReference: {fileID: 0}
     - target: {fileID: 1073438886030051023, guid: 2d7548fae5ec87248bfdc452e9fd93c9,
         type: 3}
       propertyPath: m_LocalRotation.w
-      value: 0.98691255
+      value: 0.9940158
       objectReference: {fileID: 0}
     - target: {fileID: 1073438886030051023, guid: 2d7548fae5ec87248bfdc452e9fd93c9,
         type: 3}
@@ -2665,19 +2665,27 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 304858782, guid: 92008c8cfe0cf394c8bf3f558685113c, type: 3}
       propertyPath: m_SmoothingTime
-      value: 1.5
+      value: 2
       objectReference: {fileID: 0}
     - target: {fileID: 304858782, guid: 92008c8cfe0cf394c8bf3f558685113c, type: 3}
       propertyPath: m_Damping
-      value: 3
+      value: 10
       objectReference: {fileID: 0}
     - target: {fileID: 304858782, guid: 92008c8cfe0cf394c8bf3f558685113c, type: 3}
       propertyPath: m_DampingWhenOccluded
-      value: 3
+      value: 10
       objectReference: {fileID: 0}
     - target: {fileID: 304858782, guid: 92008c8cfe0cf394c8bf3f558685113c, type: 3}
       propertyPath: m_MaximumEffort
       value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 304858782, guid: 92008c8cfe0cf394c8bf3f558685113c, type: 3}
+      propertyPath: m_MinimumDistanceFromTarget
+      value: 3
+      objectReference: {fileID: 0}
+    - target: {fileID: 304858782, guid: 92008c8cfe0cf394c8bf3f558685113c, type: 3}
+      propertyPath: m_MinimumOcclusionTime
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 7240568567602669027, guid: 92008c8cfe0cf394c8bf3f558685113c,
         type: 3}
