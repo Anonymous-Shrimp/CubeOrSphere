@@ -6,7 +6,7 @@ using UnityEngine.Rendering;
 
 public class AudioManager : MonoBehaviour
 {
-	public float musicVolume = 1;
+	public float masterVolume = 1;
 
 	Sound sh;
 
@@ -21,10 +21,10 @@ public class AudioManager : MonoBehaviour
 		foreach (Sound s in sounds)
 		{
 			s.source = gameObject.AddComponent<AudioSource>();
+			s.source.outputAudioMixerGroup = s.mixerGroup;
 			s.source.clip = s.clip;
 			s.source.loop = s.loop;
 
-			s.source.outputAudioMixerGroup = s.mixerGroup;
 		}
 	}
 
@@ -37,7 +37,7 @@ public class AudioManager : MonoBehaviour
     private void Update()
     {
 		//print(musicVolume);
-		sh.source.volume = musicVolume;
+		sh.source.volume = masterVolume;
     }
 
 

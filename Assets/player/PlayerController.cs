@@ -30,6 +30,7 @@ public class PlayerController : MonoBehaviour
     void Start()
     {
         _characterController = GetComponent<CharacterController>();
+        FindObjectOfType<AudioManager>().setVolume("Slide", 0);
     }
 
     // Update is called once per frame
@@ -51,7 +52,11 @@ public class PlayerController : MonoBehaviour
 
             if(move.magnitude != 0 && _characterController.isGrounded && !FindObjectOfType<squareSwitch>().issphere)
             {
-                FindObjectOfType<AudioManager>().setVolume("Slide", move.magnitude);
+                FindObjectOfType<AudioManager>().setVolume("Slide", move.magnitude * 0.6f);
+            }
+            else
+            {
+                FindObjectOfType<AudioManager>().setVolume("Slide", 0);
             }
 
             // Calculate the rotation for the player

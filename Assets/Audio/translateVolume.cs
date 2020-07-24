@@ -11,7 +11,7 @@ public class translateVolume : MonoBehaviour
     private void Update()
     {
         //print(shVolume);
-        manager.musicVolume = shVolume * 0.75f;
+        manager.masterVolume = shVolume;
     }
 
 }

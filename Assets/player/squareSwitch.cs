@@ -52,7 +52,11 @@ public class squareSwitch : MonoBehaviour
         if (sphereRigid.velocity.magnitude != 0 && sphere.GetComponent<Ball>().isGrounded && issphere)
         {
             FindObjectOfType<AudioManager>().setVolume("Roll", Mathf.Clamp01(sphereRigid.velocity.magnitude));
-            }
+        }
+        else
+        {
+            FindObjectOfType<AudioManager>().setVolume("Roll", 0);
+        }
 
         if (Input.GetMouseButtonDown(1) && canSwitch && isGrounded)
         {
@@ -90,6 +94,15 @@ public class squareSwitch : MonoBehaviour
             cam.LookAt = sphere.transform;
             isGrounded = sphere.GetComponent<Ball>().isGrounded;
             FindObjectOfType<AudioManager>().setVolume("Slide", 0);
+            if(sphereRigid.velocity.magnitude > 0.4 && isGrounded)
+            {
+                FindObjectOfType<AudioManager>().setVolume("Falling", 1);
+                print("yes");
+            }
+            else
+            {
+                FindObjectOfType<AudioManager>().setVolume("Falling", 0);
+            }
 
         }
         else
@@ -102,6 +115,14 @@ public class squareSwitch : MonoBehaviour
             cam.LookAt = cube.transform;
             isGrounded = cubeRigid.isGrounded;
             FindObjectOfType<AudioManager>().setVolume("Roll", 0);
+            if (sphereRigid.velocity.magnitude > 0.4 && isGrounded)
+            {
+                FindObjectOfType<AudioManager>().setVolume("Falling", 1);
+            }
+            else
+            {
+                FindObjectOfType<AudioManager>().setVolume("Falling", 0);
+            }
         }
         shapeIndicator.SetBool("issphere", issphere);
         
