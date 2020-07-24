@@ -38,6 +38,7 @@ namespace UnityStandardAssets.Vehicles.Ball
 
         private void Update()
         {
+
             // Get the axis and jump input.
 
             float h = CrossPlatformInputManager.GetAxis("Horizontal");

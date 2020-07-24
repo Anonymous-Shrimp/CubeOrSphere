@@ -42,7 +42,6 @@ public class PlayerController : MonoBehaviour
             float h = Input.GetAxis("Horizontal");
             float v = Input.GetAxis("Vertical");
 
-
             // Calculate the forward vector
 
             Vector3 camForward_Dir = Vector3.Scale(Camera.main.transform.forward, new Vector3(1, 0, 1)).normalized;
@@ -50,7 +49,10 @@ public class PlayerController : MonoBehaviour
 
             if (move.magnitude > 1f) move.Normalize();
 
-
+            if(move.magnitude != 0 && _characterController.isGrounded && !FindObjectOfType<squareSwitch>().issphere)
+            {
+                FindObjectOfType<AudioManager>().setVolume("Slide", move.magnitude);
+            }
 
             // Calculate the rotation for the player
             move = transform.InverseTransformDirection(move);

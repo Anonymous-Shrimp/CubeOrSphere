@@ -22,7 +22,15 @@ public class MoveOnCollision : MonoBehaviour
     {
         if (!multiplePads)
         {
-            doorAnim.SetBool("Closed", closed);
+            if (closed)
+            {
+                doorAnim.SetBool("Closed", true);
+            }
+            else
+            {
+                doorAnim.SetBool("Closed", false);
+
+            }
         }
         
     }

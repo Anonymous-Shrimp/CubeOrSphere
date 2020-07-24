@@ -46,6 +46,7 @@ namespace UnityStandardAssets.Vehicles.Ball
                 multiplier = 1;
                 m_Rigidbody.mass = 1;
             }
+            
             // If using torque to rotate the ball...
             if (m_UseTorque)
             {

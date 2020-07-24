@@ -1,6 +1,7 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.Audio;
 
 public class PauseUI : MonoBehaviour
 {
@@ -8,11 +9,15 @@ public class PauseUI : MonoBehaviour
     public bool LockCursor = true;
     public bool isPaused = false;
     public GameObject pauseUI;
+    public AudioMixer audioGroup;
+    public int lowPassNormal = 5000;
+    public int lowPassPaused = 150;
 
     // Start is called before the first frame update
     void Start()
     {
         cursorLock(LockCursor);
+        audioGroup.SetFloat("pauseLowPass", lowPassNormal);
 
     }
 
@@ -29,12 +34,14 @@ public class PauseUI : MonoBehaviour
                     pauseUI.SetActive(true);
                     Time.timeScale = 0;
                     cursorLock(false);
+                    audioGroup.SetFloat("pauseLowPass", lowPassPaused);
                 }
                 else
                 {
                     pauseUI.SetActive(false);
                     Time.timeScale = 1;
                     cursorLock(true);
+                    audioGroup.SetFloat("pauseLowPass", lowPassNormal);
                 }
             }
         }

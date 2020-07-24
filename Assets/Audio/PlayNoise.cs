@@ -7,7 +7,7 @@ public class PlayNoise : MonoBehaviour
     public AudioManager manager;
     void Start()
     {
-        
+        manager = FindObjectOfType<AudioManager>();
     }
 
     // Update is called once per frame
