@@ -97,7 +97,7 @@ public class squareSwitch : MonoBehaviour
             if(sphereRigid.velocity.magnitude > 0.4 && isGrounded)
             {
                 FindObjectOfType<AudioManager>().setVolume("Falling", 1);
-                print("yes");
+
             }
             else
             {

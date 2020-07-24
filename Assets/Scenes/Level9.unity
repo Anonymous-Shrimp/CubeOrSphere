@@ -3006,6 +3006,7 @@ GameObject:
   m_Component:
   - component: {fileID: 173768290}
   - component: {fileID: 173768291}
+  - component: {fileID: 173768292}
   m_Layer: 0
   m_Name: Door
   m_TagString: Untagged
@@ -3047,6 +3048,21 @@ Animator:
   m_HasTransformHierarchy: 1
   m_AllowConstantClipSamplingOptimization: 1
   m_KeepAnimatorControllerStateOnDisable: 0
+--- !u!114 &173768292
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 173768289}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c22f7e0d988e9a14f915ba8b0130b9d1, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  manager: {fileID: 0}
+  canPlay: 0
+  clipName: Door
 --- !u!4 &204404230 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 7429191162011718220, guid: 370d3efe847564e489f3a2bf6452f07b,
@@ -4361,7 +4377,7 @@ Mesh:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_Name: pb_Mesh105508
+  m_Name: pb_Mesh28390
   serializedVersion: 10
   m_SubMeshes:
   - serializedVersion: 2
@@ -5306,6 +5322,7 @@ GameObject:
   m_Component:
   - component: {fileID: 1328325494}
   - component: {fileID: 1328325495}
+  - component: {fileID: 1328325496}
   m_Layer: 0
   m_Name: Door (1)
   m_TagString: Untagged
@@ -5347,6 +5364,21 @@ Animator:
   m_HasTransformHierarchy: 1
   m_AllowConstantClipSamplingOptimization: 1
   m_KeepAnimatorControllerStateOnDisable: 0
+--- !u!114 &1328325496
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1328325493}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c22f7e0d988e9a14f915ba8b0130b9d1, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  manager: {fileID: 0}
+  canPlay: 0
+  clipName: Door
 --- !u!1 &1352373593
 GameObject:
   m_ObjectHideFlags: 0
