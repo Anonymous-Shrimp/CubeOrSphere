@@ -1,2 +1,2 @@
 # CubeOrSphere
- Why do people read the desciption
+A puzzle game with a cube that can morph into a sphere.
